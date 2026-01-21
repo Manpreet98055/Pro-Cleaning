@@ -5,7 +5,7 @@ import Navlogo from '@/assets/Navlogo.png';
 
 const Navbar = () => {
   return (
-    <div className='flex justify-between p-6 px-12 items-center bg-white shadow-md'>
+    <div className='flex justify-between p-6 px-30 items-center bg-white shadow-md'>
             <div>
                 <Image src={Navlogo} width={150} alt="Logo" height={50} />
             </div>
