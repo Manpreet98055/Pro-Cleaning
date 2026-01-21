@@ -17,7 +17,7 @@ const WelcomeSection = () => {
     <section className="max-w-7xl mx-auto px-20 py-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-        {/* LEFT IMAGE AREA (MAP SE) */}
+       
         <div className="relative w-full h-[450px]">
           {teamGallery.map((img, index) => (
             <div

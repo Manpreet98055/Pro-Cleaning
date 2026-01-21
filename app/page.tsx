@@ -3,7 +3,10 @@ import Navbar from "@/components/navbar/Navbar";
 import Main from "@/components/Main";
 import MainOne from '@/components/MainOne';
 import MainTwo from '@/components/MainTwo';
-
+import TestimonialSection from "@/components/TestimonialSection";
+import BlogSection from "@/components/BlogSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -15,7 +18,13 @@ export default function Home() {
         <Main />
         <MainOne />
         <MainTwo />
+        <TestimonialSection />
+        <BlogSection />
+        <ContactSection />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
