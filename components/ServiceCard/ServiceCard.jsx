@@ -20,14 +20,16 @@ const ServiceCard = ({ item }) => {
         onHoverStart={() => setRotated(true)}
         animate={rotated ? { rotate: 360 } : { rotate: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="rounded-2xl overflow-hidden"
+        className="rounded-lg sm:rounded-xl lg:rounded-2xl overflow-hidden"
       >
         <Image
           src={item.image}
           alt={item.title}
           width={500}
           height={250}
-          className="w-full h-[270px] object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[270px] object-cover"
+          priority={false}
         />
       </motion.div>
 <motion.div

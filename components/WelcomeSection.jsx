@@ -20,7 +20,7 @@ const WelcomeSection = () => {
 
        
         <motion.div 
-          className="relative w-full h-[350px] sm:h-[400px] md:h-[450px]"
+          className="relative w-full h-[280px] sm:h-[350px] md:h-[400px] lg:h-[450px]"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
@@ -30,17 +30,19 @@ const WelcomeSection = () => {
             <div
               key={img.id}
               className={`
-                absolute rounded-2xl sm:rounded-3xl overflow-hidden bg-white
+                absolute rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden bg-white
                 ${index === 0 
-                  ? "top-0 left-0 w-[200px] h-[280px] sm:w-[260px] sm:h-[340px] md:w-[300px] md:h-[400px] border-[4px] sm:border-[6px] border-green-500"
-                  : "bottom-0 left-28 sm:left-32 md:left-48 w-[160px] h-[220px] sm:w-[200px] sm:h-[260px] md:w-[240px] md:h-[280px] shadow-xl"}
+                  ? "top-0 left-0 w-[140px] h-[180px] sm:w-[200px] sm:h-[260px] md:w-[260px] md:h-[340px] lg:w-[300px] lg:h-[400px] border-[3px] sm:border-[4px] lg:border-[6px] border-green-500"
+                  : "bottom-0 left-20 sm:left-24 md:left-32 lg:left-48 w-[110px] h-[150px] sm:w-[160px] sm:h-[210px] md:w-[200px] md:h-[260px] lg:w-[240px] lg:h-[280px] shadow-md sm:shadow-xl"}
               `}
             >
               <Image
                 src={img.src}
                 alt="Cleaning team"
                 fill
+                sizes="(max-width: 640px) 140px, (max-width: 768px) 200px, (max-width: 1024px) 260px, 300px"
                 className="object-cover"
+                priority={index === 0}
               />
             </div>
           ))}
