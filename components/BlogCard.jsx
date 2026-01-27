@@ -7,8 +7,8 @@ const BlogCard = ({ item }) => {
     <div
       className="
         group
-        rounded-2xl overflow-hidden bg-white
-         hover:border border-green-500
+        rounded-lg sm:rounded-2xl overflow-hidden bg-white
+        hover:border border-green-500
         transition-all duration-300
       "
     >
@@ -20,7 +20,7 @@ const BlogCard = ({ item }) => {
           width={400}
           height={250}
           className="
-            w-full h-[220px] object-cover
+            w-full h-[180px] sm:h-[220px] object-cover
             transition duration-300
           "
         />
@@ -35,16 +35,16 @@ const BlogCard = ({ item }) => {
       </div>
 
       {/* CONTENT */}
-      <div className="p-6 text-center">
+      <div className="p-3 sm:p-4 md:p-6 text-center">
         <p className="text-xs text-gray-500 uppercase">
           {item.author} &nbsp; {item.date}
         </p>
 
-        <h3 className="mt-2 font-semibold text-gray-900">
+        <h3 className="mt-2 font-semibold text-gray-900 text-sm sm:text-base md:text-lg">
           {item.title}
         </h3>
 
-        <p className="text-sm text-gray-600 mt-3">
+        <p className="text-xs sm:text-sm text-gray-600 mt-2 sm:mt-3 leading-relaxed">
           {item.desc}
         </p>
 

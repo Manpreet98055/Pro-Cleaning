@@ -40,8 +40,8 @@ const PricingSection = () => {
             Choose From Our Lowest Plans and Prices
           </h2>
         </motion.div>
-        <div className="flex justify-center mb-8 sm:mb-10 md:mb-12">
-  <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center bg-[#F4F5F8] backdrop-blur-sm p-2 sm:p-1 rounded-full">
+        <div className="flex justify-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+  <div className="flex flex-col xs:flex-row gap-2 sm:gap-3 md:gap-6 items-center bg-[#F4F5F8] backdrop-blur-sm p-2 rounded-full w-full sm:w-auto">
     
     {/* Monthly (Active) */}
     <motion.button
@@ -49,9 +49,9 @@ const PricingSection = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
       className="
-        px-4 sm:px-6 py-2
+        px-3 sm:px-6 py-2
         bg-[#FFFFFF]
-        text-black text-base sm:text-lg md:text-2xl
+        text-black text-xs sm:text-sm md:text-lg
         hover:bg-green-500 cursor-pointer
         transition
         rounded-full
@@ -67,9 +67,9 @@ const PricingSection = () => {
    <button
       className="
        hover:font-sans
-        px-4 sm:px-6 py-2
+        px-3 sm:px-6 py-2
         bg-[#FFFFFF]
-        text-black text-base sm:text-lg md:text-2xl
+        text-black text-xs sm:text-sm md:text-lg
         hover:bg-green-500 
         hover:text-white
          cursor-pointer

@@ -15,12 +15,12 @@ const features = [
 
 const WelcomeSection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-20 py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-20 py-12 sm:py-16 md:py-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
 
        
         <motion.div 
-          className="relative w-full h-[450px]"
+          className="relative w-full h-[350px] sm:h-[400px] md:h-[450px]"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
@@ -30,10 +30,10 @@ const WelcomeSection = () => {
             <div
               key={img.id}
               className={`
-                absolute rounded-3xl overflow-hidden bg-white
+                absolute rounded-2xl sm:rounded-3xl overflow-hidden bg-white
                 ${index === 0 
-                  ? "top-0 left-0 w-[300px] h-[400px] border-[6px] border-green-500"
-                  : "bottom-0 left-48 w-[240px] h-[280px] shadow-xl"}
+                  ? "top-0 left-0 w-[200px] h-[280px] sm:w-[260px] sm:h-[340px] md:w-[300px] md:h-[400px] border-[4px] sm:border-[6px] border-green-500"
+                  : "bottom-0 left-28 sm:left-32 md:left-48 w-[160px] h-[220px] sm:w-[200px] sm:h-[260px] md:w-[240px] md:h-[280px] shadow-xl"}
               `}
             >
               <Image
@@ -53,44 +53,44 @@ const WelcomeSection = () => {
           transition={{ duration: 0.7 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
             Welcome To Our <br />
             Pro-cleaning Company!
           </h2>
 
-          <p className="text-gray-600 mt-4 max-w-lg">
+          <p className="text-gray-600 mt-4 max-w-lg text-sm sm:text-base leading-relaxed">
             We make your space shine! Professional and reliable cleaning
             service company providing top-notch solutions for homes and
             businesses. Satisfaction guaranteed!
           </p>
 
           {/* FEATURES */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 mt-8 sm:mt-12">
             {features.map((item, index) => (
               <motion.div
                 key={index}
-                className="flex items-center gap-3 font-bold text-1xl text-gray-700 bg-[#F5F4F4]"
+                className="flex items-center gap-2 sm:gap-3 font-semibold text-sm sm:text-base md:text-lg text-gray-700 bg-[#F5F4F4] p-2 sm:p-3 rounded"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <span className="w-5 h-5 flex items-center justify-center rounded-full bg-green-500 text-white text-xs">
+                <span className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center rounded-full bg-green-500 text-white text-xs flex-shrink-0">
                   ✓
                 </span>
-                {item}
+                <span className="text-xs sm:text-sm md:text-base">{item}</span>
               </motion.div>
             ))}
           </div>
 
           {/* BUTTONS */}
-          <div className="flex gap-4 font-sans  mt-15 ">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 font-sans mt-8 sm:mt-12">
           <button
   className="
-    px-7 py-3
+    px-6 sm:px-7 py-2 sm:py-3
     border border-gray-400
     rounded-md
-    text-black
+    text-xs sm:text-sm text-black
     bg-white
     hover:bg-green-500 hover:text-white hover:border-green-500
     transition-all duration-300
@@ -102,10 +102,10 @@ const WelcomeSection = () => {
 
            <button
   className="
-    px-7 py-3
+    px-6 sm:px-7 py-2 sm:py-3
     border border-gray-400
     rounded-md
-    text-black
+    text-xs sm:text-sm text-black
     bg-white
     hover:bg-green-500 hover:text-white hover:border-green-500
     transition-all duration-300
