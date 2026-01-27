@@ -1,44 +1,81 @@
 'use client'
-import React from "react";
+import React, { useRef } from "react";
 import { pricingData } from "@/constants/pricingData";
 import PricingCard from "./PricingCard";
+import { motion, useViewportScroll, useTransform } from 'framer-motion'
 
 const PricingSection = () => {
+  const sectionRef = useRef(null);
+  const { scrollY } = useViewportScroll();
+
+  // Animation for header - fade in and slide down
+  const headerOpacity = useTransform(
+    scrollY,
+    [0, 300],
+    [0.3, 1],
+    { clamp: true }
+  );
+
+  const headerY = useTransform(
+    scrollY,
+    [0, 300],
+    [50, 0],
+    { clamp: true }
+  );
+
   return (
-    <section className="bg-[#36B864] pt-10 relative">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-[#36B864] pt-8 sm:pt-10 md:pt-12 relative" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
 
         {/* HEADER */}
-        <div className="text-center text-white mb-14">
-          <p className="text-sm opacity-90">Our Pricing</p>
-          <h2 className="text-4xl font-bold mt-2">
-            Choose From Our Lowest <br /> Plans and Prices
+        <motion.div 
+          className="text-center text-white mb-8 sm:mb-10 md:mb-14"
+          style={{
+            opacity: headerOpacity,
+            y: headerY
+          }}
+        >
+          <p className="text-xs sm:text-sm opacity-90">Our Pricing</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
+            Choose From Our Lowest Plans and Prices
           </h2>
-        </div>
-        <div className="flex justify-center">
-  <div className="flex gap-6 items-center bg-[#F4F5F8] backdrop-blur-sm p-1 rounded-full">
+        </motion.div>
+        <div className="flex justify-center mb-8 sm:mb-10 md:mb-12">
+  <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center bg-[#F4F5F8] backdrop-blur-sm p-2 sm:p-1 rounded-full">
     
     {/* Monthly (Active) */}
-    <button
+    <motion.button
+     initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
       className="
-        px-6 py-2 rounded-full
+        px-4 sm:px-6 py-2
         bg-[#FFFFFF]
-        text-black text-2xl
+        text-black text-base sm:text-lg md:text-2xl
         hover:bg-green-500 cursor-pointer
         transition
+        rounded-full
+        w-full sm:w-auto
+        hover:text-white
+        hover:font-sans
       "
     >
       Monthly
-    </button>
+    </motion.button>
 
     {/* Yearly */}
    <button
       className="
-        px-6 py-2 rounded-full
+       hover:font-sans
+        px-4 sm:px-6 py-2
         bg-[#FFFFFF]
-        text-black text-2xl
-        hover:bg-green-500 cursor-pointer
+        text-black text-base sm:text-lg md:text-2xl
+        hover:bg-green-500 
+        hover:text-white
+         cursor-pointer
         transition
+        rounded-full
+        w-full sm:w-auto
       "
     >
       Yearly
@@ -49,11 +86,23 @@ const PricingSection = () => {
 
         {/* CARDS (OVERLAP MAGIC HERE 👇) */}
         <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8
-            translate-y-24
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8
+            translate-y-0 sm:translate-y-16 md:translate-y-24
           ">
-            {pricingData.map((item) => (
-              <PricingCard key={item.id} item={item} />
+            {pricingData.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.15,
+                  ease: "easeInOut"
+                }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <PricingCard item={item} />
+              </motion.div>
             ))}
           </div>
         </div>

@@ -12,8 +12,8 @@ const MainOne = () => {
       <div className="w-full h-[2px] bg-gray-300" />
 
       {/* SERVICES SECTION */}
-      <section className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {servicesData.map((item) => (
             <ServiceCard key={item.id} item={item} />
           ))}
@@ -21,38 +21,37 @@ const MainOne = () => {
       </section>
 
       {/* HERO SECTION */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 md:gap-12">
 
           {/* LEFT CONTENT */}
           <div>
-            <p className="text-sm text-black font-bold mb-7">
+            <p className="text-xs sm:text-sm text-black font-bold mb-4 md:mb-7">
               Affordable cleaning solutions
             </p>
 
-            <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-              High-Quality and Friendly <br />
-              Services at Fair Prices
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              High-Quality and Friendly Services at Fair Prices
             </h1>
 
-            <p className="text-[#666666] font-sans mt-7 max-w-lg">
+            <p className="text-[#666666] font-sans mt-4 md:mt-7 text-sm md:text-base leading-relaxed">
               We provide comprehensive cleaning services tailored to your needs.
               From residential cleaning services.
             </p>
 
-            <button className="mt-14 px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition">
+            <button className="mt-8 md:mt-14 px-4 md:px-6 py-2 md:py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition text-sm md:text-base">
               Get a quote
             </button>
           </div>
 
-          {/* RIGHT IMAGES (MAP SE) */}
-          <div className="relative h-[420px] w-full">
+          {/* RIGHT IMAGES - RESPONSIVE */}
+          <div className="relative w-full h-[280px] sm:h-[350px] md:h-[420px]">
             {heroImages.map((img) => (
               <div
                 key={img.id}
                 className={`absolute ${img.className}
-                  w-[260px] h-[340px]
-                  rounded-2xl overflow-hidden
+                  w-[180px] h-[240px] sm:w-[220px] sm:h-[300px] md:w-[260px] md:h-[340px]
+                  rounded-lg sm:rounded-2xl overflow-hidden
                   `}
               >
                 <Image
@@ -68,22 +67,21 @@ const MainOne = () => {
         </div>
       </section>
       <div>
-        <section className="max-w-7xl mx-auto px-6 py-16">
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 items-start">
     
     {/* LEFT BIG HEADING */}
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-      Effective Cleaning Requires <br />
-      an Expert Cleaning Team
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+      Effective Cleaning Requires an Expert Cleaning Team
     </h2>
 
     {/* RIGHT CONTENT */}
     <div>
-      <h4 className="text-lg font-semibold text-gray-900">
+      <h4 className="text-base md:text-lg font-semibold text-gray-900">
         Expert Team
       </h4>
 
-      <p className="text-gray-600 mt-2 max-w-md">
+      <p className="text-gray-600 mt-2 text-sm md:text-base leading-relaxed">
         We have professional expert cleaning staff ensuring top-notch
         cleanliness and hygiene for your space.
       </p>

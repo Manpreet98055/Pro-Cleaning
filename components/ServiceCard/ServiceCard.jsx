@@ -1,11 +1,27 @@
+'use client'
 import Image from "next/image";
+import { motion } from 'framer-motion';
+import { useState } from "react";
 
 const ServiceCard = ({ item }) => {
+  const [rotated, setRotated] = useState(false);
+
   return (
-    <div className="bg-white rounded-2xl p-4 hover:shadow-lg transition">
-      
+    <motion.div 
+      className="bg-white rounded-2xl p-4 hover:shadow-lg transition"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+
       {/* Image */}
-      <div className="rounded-2xl overflow-hidden">
+      <motion.div
+        onHoverStart={() => setRotated(true)}
+        animate={rotated ? { rotate: 360 } : { rotate: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className="rounded-2xl overflow-hidden"
+      >
         <Image
           src={item.image}
           alt={item.title}
@@ -13,30 +29,34 @@ const ServiceCard = ({ item }) => {
           height={250}
           className="w-full h-[270px] object-cover"
         />
-      </div>
-
-      {/* Content */}
-      <h3 className="text-xl font-semibold mt-4">
+      </motion.div>
+<motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
+      >
+      <motion.h3 
+       initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 4, ease: "easeInOut", delay: 0.2 }}
+     
+      className="text-xl font-semibold mt-4">
         {item.title}
-      </h3>
+      </motion.h3>
 
       <p className="text-gray-600 text-sm mt-2 leading-relaxed">
         {item.desc}
       </p>
+      </motion.div>
 
-      {/* Button */}
-     <button
-  className="
-    mt-4 px-5 py-2 rounded-md border flex items-center gap-2
-    bg-white text-black border-gray-400
-    hover:bg-green-500 hover:text-white hover:border-green-500
-    transition-all duration-300 cursor-pointer
-  "
->
-  Book Now <span>↗</span>
-</button>
+      <button className="mt-4 px-5 py-2 rounded-md border flex items-center gap-2
+        bg-white text-black border-gray-400
+        hover:bg-green-500 hover:text-white hover:border-green-500
+        transition-all duration-300 cursor-pointer">
+        Book Now <span>↗</span>
+      </button>
 
-    </div>
+    </motion.div>
   );
 };
 

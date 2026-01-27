@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -37,66 +38,94 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
 
         {/* LEFT – FIND US */}
-        <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 md:mb-8">
             Find us
           </h2>
 
           {/* Call */}
-          <div className="flex items-center gap-4 p-5 bg-gray-50 rounded-lg mb-4">
-            <div className="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center text-xl">
+          <motion.div 
+            className="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-gray-50 rounded-lg mb-3 sm:mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-500 text-white flex items-center justify-center text-lg sm:text-xl flex-shrink-0">
               ☎
             </div>
             <div>
-              <h4 className="font-semibold">Call Us</h4>
-              <p className="text-gray-600">+(08) 255 201 888</p>
+              <h4 className="font-semibold text-sm md:text-base">Call Us</h4>
+              <p className="text-gray-600 text-xs sm:text-sm">+(08) 255 201 888</p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Email */}
-          <div className="flex items-center gap-4 p-5 bg-gray-50 rounded-lg mb-4">
-            <div className="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center text-xl">
+          <motion.div 
+            className="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-gray-50 rounded-lg mb-3 sm:mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-500 text-white flex items-center justify-center text-lg sm:text-xl flex-shrink-0">
               ✉
             </div>
             <div>
-              <h4 className="font-semibold">Email Now</h4>
-              <p className="text-gray-600">hello@procleaning.com</p>
+              <h4 className="font-semibold text-sm md:text-base">Email Now</h4>
+              <p className="text-gray-600 text-xs sm:text-sm">hello@procleaning.com</p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Address */}
-          <div className="flex items-center gap-4 p-5 bg-gray-50 rounded-lg">
-            <div className="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center text-xl">
+          <motion.div 
+            className="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-gray-50 rounded-lg"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-500 text-white flex items-center justify-center text-lg sm:text-xl flex-shrink-0">
               📍
             </div>
             <div>
-              <h4 className="font-semibold">Address</h4>
-              <p className="text-gray-600">
+              <h4 className="font-semibold text-sm md:text-base">Address</h4>
+              <p className="text-gray-600 text-xs sm:text-sm">
                 7510, Brand Tower, New York, USA
               </p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* RIGHT – CONTACT FORM */}
-        <div>
-          <p className="text-sm text-gray-500 mb-1">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <p className="text-xs sm:text-sm text-gray-500 mb-1">
             Contact info
           </p>
-          <h2 className="text-3xl font-bold text-gray-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             Keep In Touch
           </h2>
 
-          <p className="text-gray-600 mt-2 mb-6">
+          <p className="text-gray-600 text-xs sm:text-sm md:text-base mt-2 mb-6 leading-relaxed">
             We prioritize responding to your inquiries promptly to ensure you
             receive the assistance you need in a timely manner.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
             <input
               type="text"
               name="name"
@@ -104,7 +133,7 @@ const ContactSection = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-green-500"
+              className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-sm focus:outline-none focus:border-green-500"
             />
 
             <input
@@ -114,7 +143,7 @@ const ContactSection = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-green-500"
+              className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-sm focus:outline-none focus:border-green-500"
             />
 
             <textarea
@@ -124,17 +153,17 @@ const ContactSection = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-green-500"
+              className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 sm:py-3 text-sm focus:outline-none focus:border-green-500"
             />
 
             <button
               type="submit"
-              className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
+              className="w-full px-4 sm:px-6 py-2 sm:py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition text-sm md:text-base font-medium"
             >
               Sent Message
             </button>
           </form>
-        </div>
+        </motion.div>
 
       </div>
     </section>

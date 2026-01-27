@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { teamGallery } from "@/constants/teamGallery";
+import { motion } from "framer-motion";
 
 const features = [
   "Vetted professionals",
@@ -18,7 +19,13 @@ const WelcomeSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
        
-        <div className="relative w-full h-[450px]">
+        <motion.div 
+          className="relative w-full h-[450px]"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {teamGallery.map((img, index) => (
             <div
               key={img.id}
@@ -37,10 +44,15 @@ const WelcomeSection = () => {
               />
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* RIGHT CONTENT */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="text-4xl font-bold text-gray-900 leading-tight">
             Welcome To Our <br />
             Pro-cleaning Company!
@@ -55,15 +67,19 @@ const WelcomeSection = () => {
           {/* FEATURES */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-12">
             {features.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="flex items-center gap-3 font-bold text-1xl text-gray-700 bg-[#F5F4F4]"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true, amount: 0.3 }}
               >
                 <span className="w-5 h-5 flex items-center justify-center rounded-full bg-green-500 text-white text-xs">
                   ✓
                 </span>
                 {item}
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -100,7 +116,7 @@ const WelcomeSection = () => {
 </button>
 
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
